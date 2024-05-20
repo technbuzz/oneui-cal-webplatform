@@ -9,6 +9,7 @@
 		<link rel="stylesheet" href="dist/reset.css">
 		<link rel="stylesheet" href="dist/reveal.css">
 		<link rel="stylesheet" href="dist/theme/black.css">
+		<link rel="stylesheet" href="dist/theme/custom.css">
 
 		<!-- Theme used for syntax highlighted code -->
 		<link rel="stylesheet" href="plugin/highlight/monokai.css">
@@ -16,8 +17,33 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+				<section>UI Challenge with Web Platform</section>
+				<section>
+          <h1>Novel interactive experiences</h1>
+          <aside class="notes">A web experince is fundamentally a call and response between you and your users. And 
+            that's why it's so imortant to invest in quality web experiences and user interactions. 
+            It shouldn't be so hard to build these, robust engaging interactions with the native web platform.
+            no added third party scripting to manage or to slow down optimal performance.
+          </aside>
+          
+          <p>Capabilities that we never had before</p>
+        </section>
+        <section>
+          <!-- <video onloadedmetadata="handleSize(this)" class="scale-video-height" data-src="assets/oneui_cal.mp4" controls> </video> -->
+          <!-- <video onloadedmetadata="handleSize(this)"  data-src="assets/oneui_cal.mp4" controls> </video> -->
+          <video class="r-stretch" data-src="assets/oneui_cal.mp4" controls> </video>
+        </section>
+        <!-- <section data-background-video="assets/oneui_cal.mp4"> </section> -->
+        <section>
+          <section>
+            <h2>Inert</h2>
+          </section>
+          
+          <section>
+            <p>With the inert attribute applied, click events are not fired, the element can't gain focus, the element and content is hidden from the accessibility tree. </p>
+          </section>
+        </section>
+
 			</div>
 		</div>
 
@@ -25,6 +51,7 @@
 		<script src="plugin/notes/notes.js"></script>
 		<script src="plugin/markdown/markdown.js"></script>
 		<script src="plugin/highlight/highlight.js"></script>
+    
 		<script>
 			// More info about initialization & config:
 			// - https://revealjs.com/initialization/
@@ -35,6 +62,12 @@
 				// Learn about plugins: https://revealjs.com/plugins/
 				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
 			});
+
+      function handleSize(event) {
+        console.log(this)
+        console.dir(event)
+        event.style.height = `${innerHeight - 200}px`; 
+      }
 		</script>
 	</body>
 </html>
