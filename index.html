@@ -68,17 +68,140 @@
                 <div>2</div>
                 <div>.</div>
                 <div>.</div>
-                <div>10 <button class="event">Isra & Miraj</button> </div>
+                <div>5 <button class="event">Random Event</button> </div>
                 <div>.</div>
                 <div>.</div>
               </div>
             </main>
           </code></pre>
         </section>
+        <section data-auto-animate>
+          <pre data-id="css"><code data-trim data-line-numbers>
+            body {
+              background: white;
+              padding: 2rem;
+            }
+          </code></pre>
+        </section>
 
+        <section data-auto-animate>
+          <pre data-id="css"><code data-trim data-line-numbers>
+            body {
+              background: white;
+              padding: 2rem;
+            }
+            main {
+              display: flex;
+              flex-direction: column;
+              justify-content: space-between;
+            }
+
+          </code></pre>
+        </section>
+        <section data-auto-animate>
+          <pre data-id="css"><code data-trim data-line-numbers>
+            body { }
+            main { }
+
+            .calendar {
+              display: grid;
+              width: 400px;
+              height: 500px;
+
+            }
+          </code></pre>
+        </section>
+        <section data-auto-animate>
+          <pre data-id="css"><code data-trim data-line-numbers>
+            body { }
+            main { }
+
+            .calendar {
+              display: grid;
+              width: 400px;
+              height: 500px;
+
+              grid-template-columns: repeat(7, 1fr);
+              grid-template-rows: repeat(6, 1fr);
+              gap: 0.25rem;
+            }
+          </code></pre>
+        </section>
         <section>
-          <iframe src="examples/500-slides.html"></iframe>
-          
+          <iframe class="code-preview rounded" data-src="partials/preview-1/index.html"></iframe>
+          <aside class="notes">Next we will add action items in the footer</aside>
+        </section>
+        <section data-auto-animate>
+          <pre data-id="html2"><code data-trim data-line-numbers>
+            <main>
+              <div class="calendar"> </div>
+              <footer id="footerMain">
+                <div id="actionFooter" class="action-footer">
+                </div>
+              </footer>
+            </main>
+          </code></pre>
+          <aside class="notes"> The nested div is to group the footer elements, to layout them. The ids will be used in JavaScript </aside>
+        </section>
+        <section data-auto-animate>
+          <pre data-id="html2"><code data-trim data-line-numbers>
+            <main>
+              <div class="calendar"> </div>
+              <footer id="footerMain">
+                <div id="actionFooter" class="action-footer">
+                  <input type="text" />
+                  <svg xmlns="http://www.w3.org/2000/svg">
+                    Add Icon
+                  </svg>
+                </div>
+              </footer>
+            </main>
+          </code></pre>
+        </section>
+
+        <section data-auto-animate>
+          <pre data-id="css2"><code data-trim data-line-numbers>
+            .calendar { }
+            .action-footer {
+              display: flex;
+              justify-content: space-between;
+            }
+          </code></pre>
+        </section>
+        <section data-auto-animate>
+          <pre data-id="css2"><code data-trim data-line-numbers>
+            .action-footer {
+              display: flex;
+              justify-content: space-between;
+
+              input[type="text"] {
+                border-radius: 2rem;
+                padding: 0.75rem;
+                border: 1px solid #ccc;
+              }
+            }
+          </code></pre>
+        </section>
+        <section data-auto-animate>
+          <pre data-id="css2"><code data-trim data-line-numbers>
+            .action-footer {
+              display: flex;
+              justify-content: space-between;
+
+              input[type="text"] {
+                /* .... */
+              }
+
+              svg {
+                border: 1px solid #ccc;
+                border-radius: 50%;
+                /* .... */
+              }
+            }
+          </code></pre>
+        </section>
+        <section>
+          <iframe class="code-preview rounded" data-src="partials/preview-2/index.html"></iframe>
         </section>
         <!-- <section data-background-video="assets/oneui_cal.mp4"> </section> -->
         <section>
