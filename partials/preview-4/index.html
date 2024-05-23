@@ -68,8 +68,9 @@
         <div>
           🗓️ Random Event All day
 
-          <br />
-          <button class="close">Close</button>
+          <form>
+            <button>Close</button>
+          </form>
         </div>
 
         <footer></footer>
@@ -128,16 +129,50 @@
       width: 2rem;
     }
   }
+
+
+  dialog {
+    width: 100%;
+    border: none;
+    background-color: transparent;
+    padding: 0;
+
+
+    section {
+      width: 100%;
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center;
+      overflow-y: hidden;
+
+      article {
+        flex: none;
+        height: 80vh;
+        width: 80%;
+        padding: 1rem;
+
+        .event-wrapper {
+          display: grid;
+          grid-template-rows: auto 1fr auto;
+
+          padding: 2rem;
+          border-radius: 1rem;
+          background-color: white;
+          height: 100%;
+        }
+      }
+
+    }
+
+
+  }
 </style>
 <script>
-  
   const eventEls = document.querySelectorAll(".event");
 
   eventEls.forEach((event) => {
-
     event.addEventListener("click", (e) => {
       dialog.showModal();
     });
-
   });
 </script>

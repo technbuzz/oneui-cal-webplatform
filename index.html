@@ -261,10 +261,8 @@
         <section data-auto-animate>
           <pre data-id="html3"><code data-trim data-line-numbers>
             <main> </main>
+
             <dialog id="dialog">
-              <section>
-                
-              </section>
             </dialog>
 
           </code></pre>
@@ -272,37 +270,40 @@
         <section data-auto-animate>
           <pre data-id="html3"><code data-trim data-line-numbers>
             <main> </main>
-            <dialog id="dialog">
-              <section>
-                <article>
-                  <div class="event-wrapper">
-                    <header>5 Sunday</header>
-                    <div> 🗓️ Random Event All day </div>
 
-                    <footer></footer>
-                  </div>
-                </article>
-                
-              </section>
+            <dialog id="dialog">
+              <p> I'm a moda dialog.</p>
             </dialog>
 
           </code></pre>
         </section>
         <section data-auto-animate>
-          <pre data-id="html3"><code data-trim data-line-numbers="6-8" data-line-numbers>
-                <article>
-                  <div class="event-wrapper">
+          <pre data-id="html3"><code data-trim data-line-numbers>
+            <main> </main>
 
-                    <header>5 Sunday</header>
-                    <div> 🗓️ Random Event All day
-                      <form method="dialog">
-                        <button class="close">Ok</button>
-                      </form>
-                    </div>
+            <dialog id="dialog">
+              <p> I'm a moda dialog.</p>
 
-                    <footer></footer>
-                  </div>
-                </article>
+              <form method="dialog">
+                <button class="close">Ok</button>
+              </form>
+
+            </dialog>
+          </code></pre>
+        </section>
+
+        <section data-auto-animate>
+          <pre data-id="html3"><code data-trim data-line-numbers="6-8" >
+            <main> </main>
+
+            <dialog id="dialog">
+              <p> I'm a moda dialog.</p>
+
+              <form method="dialog">
+                <button class="close">Ok</button>
+              </form>
+
+            </dialog>
           </code></pre>
           <aside class="notes"> The highlighted code is implicit way to close the dialog, without
             JavaScript intervention
@@ -322,6 +323,7 @@
             });
           </code></pre>
         </section>
+        
         <section data-auto-animate>
           <pre data-id="js"><code data-trim data-line-numbers class="language-js">
             const eventEls = document.querySelectorAll(".event");
@@ -335,21 +337,206 @@
             });
           </code></pre>
         </section>
+
         <section>
           <iframe class="code-preview rounded" data-src="partials/preview-3/index.html"></iframe>
-          <aside class="notes">Let's improve the dialog a bit by styling event details</aside>
+          <aside class="notes">Let's improve the dialog. It's boring. Lets add a bit by adding & styling event details</aside>
         </section>
+
         <section data-auto-animate>
-          <pre data-id="css2"><code data-trim data-line-numbers>
+          <pre data-id="html4"><code data-trim data-line-numbers>
+            <main> </main>
+
+            <dialog id="dialog">
+              <p> I'm a moda dialog.</p>
+
+              <form method="dialog">
+                <button class="close">Ok</button>
+              </form>
+
+            </dialog>
+          </code></pre>
+        </section>
+
+        <section data-auto-animate>
+          <pre data-id="html4"><code data-trim data-line-numbers>
+            <main> </main>
+
+            <dialog id="dialog">
+              <p> I'm a moda dialog.</p>
+
+              <form method="dialog">
+                <button class="close">Ok</button>
+              </form>
+
+              <section> </section>
+
+            </dialog>
+          </code></pre>
+        </section>
+
+        <section data-auto-animate>
+          <pre data-id="html4"><code data-trim data-line-numbers>
+            <main> </main>
+
+            <dialog id="dialog">
+              <! -- -->
+
+              <section>
+                <article></article>
+                <article></article>
+                <article></article>
+              </section>
+
+            </dialog>
+          </code></pre>
+        </section>
+
+        <section data-auto-animate>
+          <pre data-id="html4"><code data-trim data-line-numbers>
+            <dialog id="dialog">
+
+              <section>
+                <article></article>
+                <article></article>
+                <article></article>
+              </section>
+
+            </dialog>
+          </code></pre>
+        </section>
+
+        <section data-auto-animate>
+          <pre data-id="html4"><code data-trim data-line-numbers>
+              <section>
+                <article></article>
+              </section>
+          </code></pre>
+        </section>
+
+        <section data-auto-animate>
+          <pre data-id="html4"><code data-trim data-line-numbers>
+              <section>
+                <article>
+                
+                  <div class="event-wrapper"> </div>
+
+                </article>
+              </section>
+          </code></pre>
+        </section>
+
+        <section data-auto-animate>
+          <pre data-id="html4"><code data-trim data-line-numbers>
+              <section>
+                <article>
+                
+                  <div class="event-wrapper">
+                    <header>5 Sunday</header>
+                    🗓️ Random Event All day
+                    <footer></footer>
+                  </div>
+
+                </article>
+              </section>
+          </code></pre>
+        </section>
+
+        <section data-auto-animate>
+          <pre data-id="css3"><code data-trim data-line-numbers>
             .calendar { }
-            .action-footer {
-              display: flex;
-              justify-content: space-between;
+            .action-footer { }
+
+            dialog {
+
+            }
+          </code></pre>
+        </section>       
+        <section data-auto-animate>
+          <pre data-id="css3"><code data-trim data-line-numbers>
+            .calendar { }
+            .action-footer { }
+
+            dialog {
+              width: 100%;
+              border: none;
+              background-color: transparent;
+              padding: 0;
             }
           </code></pre>
         </section>
+        <section data-auto-animate>
+          <pre data-id="css3"><code data-trim data-line-numbers>
+            dialog {
+              width: 100%;
+              border: none;
+              background-color: transparent;
+              padding: 0;
+
+              section {
+                width: 100%;
+                display: flex;
+                flex-wrap: nowrap;
+                align-items: center;
+                overflow-y: hidden;
+              }
+            }
+          </code></pre>
+        </section>
+
+        <section data-auto-animate>
+          <pre data-id="css3"><code data-trim data-line-numbers>
+            dialog {
+              /* .... */
+
+              section {
+                width: 100%;
+                display: flex;
+                flex-wrap: nowrap;
+                align-items: center;
+                overflow-y: hidden;
+              }
+              
+              article {
+              }
+            }
+          </code></pre>
+        </section>
+        <section data-auto-animate>
+          <pre data-id="css3"><code data-trim data-line-numbers>
+            dialog {
+              /* .... */
+
+              section { }
+              
+              article {
+                flex: none;
+                height: 80vh;
+                width: 80%;
+                padding: 1rem;
+              }
+
+            }
+          </code></pre>
+        </section>
+        <section>
+          <iframe class="code-preview rounded" data-src="partials/preview-4/index.html"></iframe>
+        </section>
         <!-- <section data-background-video="assets/oneui_cal.mp4"> </section> -->
 
+                <!-- <article> -->
+                <!--   <div class="event-wrapper"> -->
+                <!---->
+                <!--     <header>5 Sunday</header> -->
+                <!--     <div> 🗓️ Random Event All day -->
+                <!--       <form method="dialog"> -->
+                <!--         <button class="close">Ok</button> -->
+                <!--       </form> -->
+                <!--     </div> -->
+                <!---->
+                <!--     <footer></footer> -->
+                <!--   </div> -->
+                <!-- </article> -->
 			</div>
 		</div>
 
