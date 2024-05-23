@@ -236,12 +236,26 @@
         <!-- HTML DIALOG  EXPLAIN -->
 
         <section>
-          <h3>HTML Dialog</h3>
+          <h3>&lt;dialog&gt;</h3>
         </section>
 
         <section>
+          <h4>Dialog let us create modal dialogs with inert background</h4>
+          <h4>and a :backdrop</h4>
+        </section>
+        <section>
+
+          <h2>#top-layer</h3>
+          <img src="assets/top-layer.png" />
+          <p>No more fighting with z-index to ensure they go on top of everything else</p>
         </section>
         
+        <section>
+            <h2>Inert</h2>
+        </section>
+          <section>
+            <p>With the inert attribute applied, click events are not fired, the element can't gain focus, the element and content is hidden from the accessibility tree. </p>
+          </section>
         <!-- EOF HTML DIALOG  EXPLAIN -->
 
         <section data-auto-animate>
@@ -294,20 +308,38 @@
             JavaScript intervention
           </aside>
         </section>
+        <section data-auto-animate>
+          <pre data-id="js"><code data-trim data-line-numbers>
+            const eventEls = document.querySelectorAll(".event");
+          </code></pre>
+          <aside class="notes">We still need JavaScript to explicitly open the dialog</aside>
+        </section>
+        <section data-auto-animate>
+          <pre data-id="js"><code data-trim data-line-numbers class="language-js">
+            const eventEls = document.querySelectorAll(".event");
 
+            eventEls.forEach((event) => {
+            });
+          </code></pre>
+        </section>
+        <section data-auto-animate>
+          <pre data-id="js"><code data-trim data-line-numbers class="language-js">
+            const eventEls = document.querySelectorAll(".event");
+
+            eventEls.forEach((event) => {
+
+              event.addEventListener("click", (e) => {
+                dialog.showModal();
+              });
+
+            });
+          </code></pre>
+        </section>
         <section>
           <iframe class="code-preview rounded" data-src="partials/preview-3/index.html"></iframe>
+          <aside class="notes">Let's improve the dialog a bit by styling :backdrop</aside>
         </section>
         <!-- <section data-background-video="assets/oneui_cal.mp4"> </section> -->
-        <section>
-          <section>
-            <h2>Inert</h2>
-          </section>
-          
-          <section>
-            <p>With the inert attribute applied, click events are not fired, the element can't gain focus, the element and content is hidden from the accessibility tree. </p>
-          </section>
-        </section>
 
 			</div>
 		</div>
