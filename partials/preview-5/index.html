@@ -4,12 +4,12 @@
     <div>2</div>
     <div>3</div>
     <div>4</div>
-    <div>10 <button class="event">Random Event</button></div>
+    <div>5</div>
     <div>6</div>
     <div>7</div>
     <div>8</div>
     <div>9</div>
-    <div>10</div>
+    <div>10 <button class="event">Random Event</button></div>
     <div>11</div>
     <div>12</div>
     <div>13</div>
@@ -22,7 +22,7 @@
     <div>20</div>
     <div>21</div>
     <div>22</div>
-    <div>23 <button class="event">Angular 18 Release</button></div>
+    <div>23 <button class="event">Angular 18 Launch Party</button></div>
     <div>24</div>
     <div>25</div>
     <div>26</div>
@@ -54,13 +54,43 @@
   </footer>
 </main>
 <dialog id="dialog">
-  <p> I'm a modal dialog.</p>
-  <form type="dialog">
-    <button>Close</button>
-  </form>
+  <section>
+    <article>
+      <div class="event-wrapper">
+        <header></header>
+        <div></div>
+        <footer></footer>
+      </div>
+    </article>
+    <article id="2">
+      <div class="event-wrapper">
+        <header>5 Sunday</header>
+        <div>
+          🗓️ Random Event All day
+
+          <form>
+            <button>Close</button>
+          </form>
+        </div>
+
+        <footer></footer>
+      </div>
+    </article>
+    <article id="3">
+      <div class="event-wrapper">
+        <header></header>
+        <div></div>
+        <footer></footer>
+      </div>
+    </article>
+  </section>
 </dialog>
 
 <style>
+  * {
+    box-sizing: border-box;
+  }
+
   body {
     background: white;
     padding: 2rem;
@@ -103,17 +133,53 @@
       width: 2rem;
     }
   }
-</style>
 
+
+  dialog {
+    width: 100%;
+    border: none;
+    background-color: transparent;
+    padding: 0;
+
+
+    section {
+      width: 100%;
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center;
+      overflow-y: hidden;
+      scroll-snap-type: x mandatory;
+
+      article {
+        flex: none;
+        height: 80vh;
+        width: 80%;
+        padding: 1rem;
+        scroll-snap-align: center;
+
+
+        .event-wrapper {
+          display: grid;
+          grid-template-rows: auto 1fr auto;
+
+          padding: 2rem;
+          border-radius: 1rem;
+          background-color: white;
+          height: 100%;
+        }
+      }
+
+    }
+
+
+  }
+</style>
 <script>
-  
   const eventEls = document.querySelectorAll(".event");
 
   eventEls.forEach((event) => {
-
     event.addEventListener("click", (e) => {
       dialog.showModal();
     });
-
   });
 </script>
