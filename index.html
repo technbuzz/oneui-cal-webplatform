@@ -787,21 +787,105 @@
         <section>
           <iframe class="code-preview rounded" data-src="partials/preview-6/index.html"></iframe>
         </section>
-        <!-- <section data-background-video="assets/oneui_cal.mp4"> </section> -->
+        <section data-auto-animate>
+          <h2>Three Distinct Features</h2>
+          <ul>
+            <li style="text-decoration: line-through">Event Details</li>
+            <li>Slide throught Events </li>
+            <li>Smooth Transition between different State</li>
+          </ul>
+        </section>
+        <section data-auto-animate>
+          <h2>Three Distinct Features</h2>
+          <ul>
+            <li style="text-decoration: line-through">Event Details</li>
+            <li style="text-decoration: line-through">Slide throught Events </li>
+            <li>Smooth Transition between different State</li>
+          </ul>
+        </section>
+        
+        <section>
+          <video class="r-stretch" data-src="assets/vt.mp4" controls> </video>
+          <aside class="notes">Last one, This is the cool one. 😎, there is some explaination but bear with me it's worth it.   </aside>
+        </section>
 
-                <!-- <aricle> -->
-                <!--   <div class="event-wrapper"> -->
-                <!---->
-                <!--     <header>5 Sunday</header> -->
-                <!--     <div> 🗓️ Random Event All day -->
-                <!--       <form method="dialog"> -->
-                <!--         <button class="close">Ok</button> -->
-                <!--       </form> -->
-                <!--     </div> -->
-                <!---->
-                <!--     <footer></footer> -->
-                <!--   </div> -->
-                <!-- </article> -->
+        <section data-auto-animate> 
+          <h2>View Transition API</h2>
+        </section>
+        <section data-auto-animate> 
+          <h2>View Transition API</h2>
+          <p>
+            With View Transitions you can create powerful, immersive native like experiences, that have seamless transition between view of the web app.
+          </p>
+          
+        </section>
+        <section>
+          <h2>Single Page VT</h2>
+          <video class="r-stretch" data-src="assets/single-vt.mp4" controls> </video>
+          <p><a href="https://http203-playlist.netlify.app/">Link to the demo </a></href>
+        </section>
+        <section data-auto-animate> 
+          <h2>More Examples</h2>
+          
+          <p><a href="https://live-transitions.pages.dev/" target="_blank">Link to Multi Page VT</a></href>
+
+        </section>
+        <section>
+
+          <img data-src="assets/vt-support.png" class="r-stretch rounded" alt="View Transition Support" />
+            
+          <aside class="notes"> It is delightfull to see that many framework have adopted it as first class feature. 
+          it's never been easy to add transition to SPA</aside>
+
+        </section>
+        <section data-auto-animate>
+          <h3>One line to trigger View Transition</h3>
+        </section>
+
+        <section data-auto-animate>
+          <h3>One line to trigger View Transition</h3>
+          <pre>
+            <code>
+              document.startViewTransition(...)
+            </code>
+          </pre>
+          <aside class="notes">At it's core regardless of which framework you use, same document view transition revolves around single line of code</aside>
+        </section>
+
+        <section data-auto-animate>
+
+          <pre data-id="css6"><code data-trim data-line-numbers>
+            :root {
+              view-transition-name: root;
+            }
+
+            .root {
+              view-transition-name: root;
+            }
+
+          </code></pre>
+          <aside class="notes">
+            When invoked, browsers automatically captures snapshot of all element that have view transition name property declared on them.
+          </aside>
+        </section>
+        <section> 
+          <img data-src="assets/old-newstate.png" class="r-stretch rounded" alt="Old and new state" />
+
+          <aside class="notes">
+            Then the provided callback is executed, that updated the DOM, browser takes snapshot of new state
+          </aside>
+        </section>
+
+
+        <section> 
+          <video class="r-stretch" data-src="assets/snapshot-anim" controls> </video>
+
+          <aside class="notes">
+            These snapshop are arranged in tree of pseudo elements. Which are animated using power of CSS Animations.
+            Snapshop pair of old and new state smoothly transitioned from their old size and position to new location while their
+            content cross fades
+          </aside>
+        </section>
 			</div>
 		</div>
 
@@ -820,12 +904,6 @@
 				// Learn about plugins: https://revealjs.com/plugins/
 				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
 			});
-
-      function handleSize(event) {
-        console.log(this)
-        console.dir(event)
-        event.style.height = `${innerHeight - 200}px`; 
-      }
 		</script>
 	</body>
 </html>
