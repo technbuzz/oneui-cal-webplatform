@@ -526,6 +526,28 @@
           <aside class="notes"> Now we have overflowed content hence it scrolled. But we have all seen this kind of scrolling. 
           Let's make it interesting with few css properties</aside>
         </section>
+
+        <section data-auto-animate>
+          <h2>Three Distinct Features</h2>
+          <ul>
+            <li>Event Details</li>
+            <li>Slide throught Events </li>
+            <li>Smooth Transition between different State</li>
+          </ul>
+        </section>
+
+        <section data-auto-animate>
+          <h2>Three Distinct Features</h2>
+          <ul>
+            <li style="text-decoration: line-through">Event Details</li>
+            <li>Slide throught Events </li>
+            <li>Smooth Transition between different State</li>
+          </ul>
+        </section>
+
+        <section>
+          <video class="r-stretch" data-src="assets/snap.mp4" controls> </video>
+        </section>
           
         <section>
           <h3>SCROLL SNAP</h3>
@@ -602,11 +624,172 @@
         </section>
         <section>
           <iframe class="code-preview rounded" data-src="partials/preview-5/index.html"></iframe>
-          <aside class="notes"></aside>
+        </section>
+
+        <section>
+          <video class="r-stretch" data-src="assets/snap.mp4" controls> </video>
+          <aside class="notes">As we can see the element that is snapped, active element scales bigger than other, 
+          Luckily browser exposes this feature</aside>
+        </section>
+        
+        <section>
+          <h3><a href="https://drafts.csswg.org/css-scroll-snap-2/" target="_blank">CSS-SCROLL-SNAP-2</a></h3>
+          <h4>Working Draft</h4>
+
+          <p class="fragment"> snapChanging </p>
+          <p class="fragment"> snapChanged </p>
+          <p class="fragment"> :snapped </p>
+        </section>
+        
+        <section data-auto-animate>
+          <pre data-id="js2"><code data-trim data-line-numbers class="language-js">
+            const eventEls = document.querySelectorAll(".event");
+
+            eventEls.forEach((event) => {
+
+              event.addEventListener("click", (e) => {
+                dialog.showModal();
+              });
+
+            });
+          </code></pre>
+        </section>
+
+        <section data-auto-animate>
+          <pre data-id="js2"><code data-trim data-line-numbers class="language-js">
+            const eventEls = document.querySelectorAll(".event");
+
+            eventEls.forEach((event) => {
+
+            });
+          </code></pre>
+        </section>
+        <section data-auto-animate>
+
+          <pre data-id="js2"><code data-trim data-line-numbers class="language-js">
+            const eventEls = document.querySelectorAll(".event");
+
+            eventEls.forEach((event) => {
+
+            });
+
+            const sectionEl = document.querySelector("dialog section");
+
+          </code></pre>
+        </section>
+        <section data-auto-animate>
+          <pre data-id="js2"><code data-trim data-line-numbers class="language-js">
+            /* ... */
+            const sectionEl = dialog.querySelector("section");
+            const articlEls = section.querySelectorAll("article");
+
+          </code></pre>
+        </section>
+        <section data-auto-animate>
+          <pre data-id="js2"><code data-trim data-line-numbers class="language-js">
+            /* ... */
+            const sectionEl = dialog.querySelector("section");
+            const articlEls = section.querySelectorAll("article");
+
+            sectionEl.addEventListener('snapchanged', e => {
+            }) 
+
+          </code></pre>
+        </section>
+        <section data-auto-animate>
+          <pre data-id="js2"><code data-trim data-line-numbers="6" class="language-js">
+            const sectionEl = dialog.querySelector("section");
+            const articlEls = section.querySelectorAll("article");
+
+            sectionEl.addEventListener('snapchanged', e => {
+            
+              e.snapTargetInline.classList.add('active')
+
+            }) 
+
+          </code></pre>
+          <aside class="notes"> snapTargetInline, 
+            The element that the snap container is snapped to in the inline axis at the snap position for the associated snap event.
+          </aside>
+        </section>
+        <section data-auto-animate>
+          <pre data-id="js2"><code data-trim data-line-numbers class="language-js">
+            const sectionEl = dialog.querySelector("section");
+            const articlEls = section.querySelectorAll("article");
+
+            sectionEl.addEventListener('snapchanged', e => {
+
+              articlEls.forEach(a => a.classList.remove('active'))
+
+              e.snapTargetInline.classList.add('active')
+
+            }) 
+
+          </code></pre>
+        </section>
+        <section data-auto-animate>
+          <pre data-id="css5"><code data-trim data-line-numbers>
+            article {
+              flex: none;
+              height: 80vh;
+              width: 80%;
+              padding: 1rem;
+            }
+          </code></pre>
+        </section>
+        <section data-auto-animate>
+          <pre data-id="css5"><code data-trim data-line-numbers="7">
+            article {
+              flex: none;
+              height: 80vh;
+              width: 80%;
+              padding: 1rem;
+
+              opacity: 0.8;
+            }
+          </code></pre>
+        </section>
+        <section data-auto-animate>
+          <pre data-id="css5"><code data-trim data-line-numbers>
+            article {
+              /* ... */
+
+              opacity: 0.8;
+
+            }
+          </code></pre>
+        </section>
+        <section data-auto-animate>
+          <pre data-id="css5"><code data-trim data-line-numbers>
+            article {
+              /* ... */
+
+              opacity: 0.8;
+              transition: all 0.5s ease-in-out;
+
+            }
+          </code></pre>
+        </section>
+        <section data-auto-animate>
+          <pre data-id="css5"><code data-trim data-line-numbers>
+            article {
+              /* ... */
+
+              opacity: 0.8;
+              transition: all 0.5s ease-in-out;
+
+              &.active {
+                opacity: 1;
+              }
+            }
+          </code></pre>
+        </section>
+        <section>
+          <iframe class="code-preview rounded" data-src="partials/preview-6/index.html"></iframe>
         </section>
         <!-- <section data-background-video="assets/oneui_cal.mp4"> </section> -->
 
-                <!-- <article> -->
+                <!-- <aricle> -->
                 <!--   <div class="event-wrapper"> -->
                 <!---->
                 <!--     <header>5 Sunday</header> -->
