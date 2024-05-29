@@ -878,7 +878,7 @@
 
 
         <section> 
-          <video class="r-stretch" data-src="assets/snapshot-anim" controls> </video>
+          <video class="r-stretch" data-src="assets/snapshot-anim.mp4" controls> </video>
 
           <aside class="notes">
             These snapshop are arranged in tree of pseudo elements. Which are animated using power of CSS Animations.
@@ -886,7 +886,163 @@
             content cross fades
           </aside>
         </section>
+
+        <section data-auto-animate>
+          <pre data-id="js3"><code data-trim data-line-numbers class="language-js">
+            eventEls.forEach((event) => {
+
+              event.addEventListener("click", (e) => {
+                dialog.showModal();
+              });
+
+            });
+          </code></pre>
+        </section>
+
+        <section data-auto-animate>
+          <pre data-id="js3"><code data-trim data-line-numbers class="language-js">
+            eventEls.forEach((event) => {
+
+              event.addEventListener("click", (e) => {
+
+                  dialog.showModal();
+
+              });
+
+            });
+          </code></pre>
+        </section>
+        <section data-auto-animate>
+          <pre data-id="js3"><code data-trim data-line-numbers class="language-js">
+            eventEls.forEach((event) => {
+
+              event.addEventListener("click", (e) => {
+                document.startViewTransition(() => {
+
+                  dialog.showModal();
+                  
+                })
+              });
+
+            });
+          </code></pre>
+        </section>
+
+
+        <section>
+          <iframe class="code-preview rounded" data-src="partials/preview-7/index.html"></iframe>
+
+          <aside class="notes">
+            This is the default cross fade we get. but if you pay attention in the video here/next, we have this subtle design hueristic. 
+            that tells about user journey where he is now and where he was after closing the dialog
+          </aside>
+        </section>
+
+        <section>
+          <video class="r-stretch" data-src="assets/vt.mp4" controls> </video>
+          <aside class="notes"></aside>
+        </section>
+
+        <section>
+          <img src="assets/link-event.png" class="r-stretch rounded" alt="Link Events" />
+          <aside class="notes">We have to link the event trigger from old snapshot to it's details in new snapshot</aside>
+        </section>
+
+        <section data-auto-animate>
+          <pre data-id="js4"><code data-trim data-line-numbers class="language-js">
+              event.addEventListener("click", (e) => {
+                document.startViewTransition(() => {
+
+                  dialog.showModal();
+                  
+                })
+              });
+          </code></pre>
+        </section>
+
+        <section data-auto-animate>
+          <pre data-id="js4"><code data-trim data-line-numbers class="language-js">
+              event.addEventListener("click", (e) => {
+                const eventStyle = e.target.style
+
+                document.startViewTransition(() => {
+
+                  dialog.showModal();
+                  
+                })
+              });
+          </code></pre>
+        </section>
+
+        <section data-auto-animate>
+          <pre data-id="js4"><code data-trim data-line-numbers class="language-js">
+              event.addEventListener("click", (e) => {
+                const eventStyle = e.target.style
+                eventStyle.viewTransitionName = 'Event'
+            
+
+                document.startViewTransition(() => {
+
+                  dialog.showModal();
+                  
+                })
+              });
+          </code></pre>
+        </section>
+
+        <section data-auto-animate>
+          <pre data-id="js4"><code data-trim data-line-numbers class="language-js">
+              event.addEventListener("click", (e) => {
+                const eventStyle = e.target.style
+                eventStyle.viewTransitionName = 'Event'
+            
+
+                document.startViewTransition(() => {
+                  eventStyle.viewTransitionName = null
+
+                  dialog.showModal();
+                  
+                })
+              });
+          </code></pre>
+          <aside class="notes">We have to remove 'Event' transition name from this particular target b/c 
+          not two element can have same transition name</aside>
+        </section>
+
+        <section data-auto-animate>
+          <pre data-id="js4"><code data-trim data-line-numbers class="language-js">
+              event.addEventListener("click", (e) => {
+                const eventStyle = e.target.style
+                eventStyle.viewTransitionName = 'Event'
+            
+
+                document.startViewTransition(() => {
+                  eventStyle.viewTransitionName = null
+                  
+                  dialog.style.viewTransitionName = 'Event'
+
+                  dialog.showModal();
+                  
+                })
+              });
+          </code></pre>
+        </section>
+
+
+        <section>
+          <iframe class="code-preview rounded" data-src="partials/preview-8/index.html"></iframe>
+
+          <aside class="notes">
+            This is the default cross fade we get. but if you pay attention in the video here/next, we have this subtle design hueristic. 
+            that tells about user journey where he is now and where he was after closing the dialog
+          </aside>
+        </section>
+        <!-- SLIDES ENDS HERE-->
+
+
 			</div>
+
+      
 		</div>
 
 		<script src="dist/reveal.js"></script>

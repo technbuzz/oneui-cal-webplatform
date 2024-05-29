@@ -1,0 +1,222 @@
+<main>
+  <div class="calendar">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <div>6</div>
+    <div>7</div>
+    <div>8</div>
+    <div>9</div>
+    <div>10 <button class="event">Random Event</button></div>
+    <div>11</div>
+    <div>12</div>
+    <div>13</div>
+    <div>14</div>
+    <div>15</div>
+    <div>16</div>
+    <div>17</div>
+    <div>18</div>
+    <div>19</div>
+    <div>20</div>
+    <div>21</div>
+    <div>22</div>
+    <div>23 <button class="event">Angular 18 Launch Party</button></div>
+    <div>24</div>
+    <div>25</div>
+    <div>26</div>
+    <div>27</div>
+    <div>28</div>
+    <div>29</div>
+    <div>30</div>
+    <div>31 <button class="event">Birthday</button></div>
+  </div>
+
+  <footer id="footerMain">
+    <div id="actionFooter" class="action-footer">
+      <input type="text" placeholder="Add event to this day" />
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="w-6 h-6"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M12 4.5v15m7.5-7.5h-15"
+        />
+      </svg>
+    </div>
+  </footer>
+</main>
+<dialog id="dialog">
+  <section>
+    <article>
+      <div class="event-wrapper">
+        <header></header>
+        <div></div>
+        <footer></footer>
+      </div>
+    </article>
+    <article id="2">
+      <div class="event-wrapper">
+        <header>5 Sunday</header>
+        <div>
+          🗓️ Random Event All day
+
+          <form method="dialog">
+            <button>Close</button>
+          </form>
+        </div>
+
+        <footer></footer>
+      </div>
+    </article>
+    <article id="3">
+      <div class="event-wrapper">
+        <header></header>
+        <div></div>
+        <footer></footer>
+      </div>
+    </article>
+  </section>
+</dialog>
+
+<style>
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    background: white;
+    padding: 2rem;
+  }
+
+  main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .calendar {
+    display: grid;
+    width: 400px;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    height: 500px;
+    gap: 0.25rem;
+
+    & div {
+      cursor: pointer;
+    }
+  }
+  .action-footer {
+    view-transition-name: actions;
+    display: flex;
+    justify-content: space-between;
+
+    input[type="text"] {
+      border-radius: 2rem;
+      padding: 0.75rem;
+      border: 1px solid #ccc;
+    }
+
+    svg {
+      border: 1px solid #ccc;
+      border-radius: 50%;
+      align-self: end;
+      padding: 5px;
+      font-size: 1rem;
+      width: 2rem;
+    }
+  }
+
+
+  dialog {
+    width: 100%;
+    border: none;
+    background-color: transparent;
+    padding: 0;
+
+
+    section {
+      width: 100%;
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center;
+      overflow-y: hidden;
+      scroll-snap-type: x mandatory;
+
+      article {
+        flex: none;
+        height: 80vh;
+        width: 80%;
+        padding: 2rem;
+        scroll-snap-align: center;
+
+        opacity: 0.8;
+        transition: all 0.5s ease-in-out;
+
+        &.active {
+          opacity: 1;
+          padding: 0;
+        }
+
+
+        .event-wrapper {
+          display: grid;
+          grid-template-rows: auto 1fr auto;
+
+          padding: 2rem;
+          border-radius: 1rem;
+          background-color: white;
+          height: 100%;
+        }
+      }
+
+    }
+
+
+  }
+</style>
+<script>
+  const eventEls = document.querySelectorAll(".event");
+
+  eventEls.forEach((event) => {
+    event.addEventListener("click", (e) => {
+      const eventStyle = e.target.style
+      eventStyle.viewTransitionName = 'Event'
+  
+
+      document.startViewTransition(() => {
+        eventStyle.viewTransitionName = null
+        
+        dialog.style.viewTransitionName = 'Event'
+
+        dialog.showModal();
+        
+      })
+    });
+    // event.addEventListener("click", (e) => {
+    //   document.startViewTransition(() => {
+    //     dialog.showModal();
+    //   })
+    // });
+  });
+
+  const sectionEl = dialog.querySelector("section")
+  const articleEls = sectionEl.querySelectorAll("article")
+
+
+  sectionEl.addEventListener('snapchanged', e => {
+
+    articleEls.forEach(a => a.classList.remove('active'))
+
+    e.snapTargetInline.classList.add('active')
+
+  }) 
+
+</script>
