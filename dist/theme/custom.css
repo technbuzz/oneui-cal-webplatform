@@ -17,3 +17,54 @@ code {
 
 }
 
+.more-features {
+  display: flex !important;
+  flex-wrap: wrap;
+  gap: 2rem 1rem;
+
+  li {
+        border: 1px solid;
+    list-style: none;
+    padding: 0.25em 0.5em;
+    border-radius: 0.5em;
+    box-shadow: 0px 6px 2px 0px #ce6379, 0px 11px 1px 0px #3d88f4;
+  }
+}
+
+.end-note {
+  --bg-gradient: linear-gradient(90deg, #7209d4, #2832d4 33%, #00a5b2);
+	--bg-gradient: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	--bg-gradient: linear-gradient(45deg, aqua, blue, magenta, red, orange, yellow, green, cyan, blue, violet, cyan, skyblue);
+	--bg-gradient: linear-gradient(45deg, #fff, #9db4e6, #2e93f5, #8b94f2, #cd7cbc, #e16689, #c680c5, #4598f7);
+  line-height: 0.9 !important;
+  background-clip: text;
+  -webkit-background-clip: text;
+  background-image: var(--bg-gradient);
+  color: transparent !important;
+
+	background-size: 400% 400%;
+	animation: ending 15s ease infinite;
+	/* height: 100vh; */
+}
+
+@keyframes ending {
+	0% {
+		background-position: 0% 50%;
+	}
+	25% {
+		background-position: 100% 0%;
+	}
+  
+	50% {
+		background-position: 100% 100%;
+	}
+
+	75% {
+		background-position: 0% 100%;
+	}
+	100% {
+		background-position: 0% 0%;
+	}
+}
+
+

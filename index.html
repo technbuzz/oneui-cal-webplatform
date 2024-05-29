@@ -1185,7 +1185,7 @@
 
 
         <section data-auto-animate>
-          <pre data-id="css6"><code data-trim data-line-numbers >
+          <pre data-id="css6"><code data-trim data-line-numbers class="language-css" >
             .action-footer {
               /* .... */
 
@@ -1196,34 +1196,68 @@
         </section>
 
         <section data-auto-animate>
-          <pre data-id="js5"><code data-trim data-line-numbers class="language-js">
-            closeEl.addEventListener("click", () => {
+          <pre data-id="js6"><code data-trim data-line-numbers class="language-js">
+            sectionEl.addEventListener('snapchanged', e => {
 
-              const transition = document.startViewTransition(() => {
+              articlEl.forEach(article => article.classList.remove('active'))
+              e.snapTargetInline.classList.add('active')
 
-                eventEl.style.viewTransitionName = 'Event'
 
-                dialog.close()
-
-              });
-
-              await transition.finished;
-
-              dialog.style.viewTransitionName = "";
-
-            });
+            })
           </code></pre>
           <aside class="notes">
             I've added code to close when we click on the backdrop as well and output becomes
           </aside>
         </section>
+        <section data-auto-animate>
+          <pre data-id="js6"><code data-trim data-line-numbers class="language-js">
+            sectionEl.addEventListener('snapchanged', e => {
 
+              articlEl.forEach(article => article.classList.remove('active'))
+              e.snapTargetInline.classList.add('active')
+
+              e.querySelector("footer").appendChild(actionFooter);              
+
+            })
+          </code></pre>
+        </section>
         <section>
           <iframe class="code-preview rounded" data-src="partials/preview-10/index.html"></iframe>
-          <aside class="notes">
-            Now there is one missing element. The footer actions actions 
-          </aside>
+          <aside class="notes"> </aside>
 
+        </section>
+
+        <section data-auto-animate>
+          <h2>Three Distinct Features</h2>
+          <ul>
+            <li style="text-decoration: line-through">Event Details</li>
+            <li style="text-decoration: line-through">Slide throught Events </li>
+            <li>Smooth Transition between different State</li>
+          </ul>
+        </section>
+
+        <section data-auto-animate>
+          <h2>Three Distinct Features</h2>
+          <ul>
+            <li style="text-decoration: line-through">Event Details</li>
+            <li style="text-decoration: line-through">Slide throught Events </li>
+            <li style="text-decoration: line-through">Smooth Transition between different State</li>
+          </ul>
+        </section>
+        <section>
+          <!-- <h1 class="end-note">THAT'S <br/> IT</h1> -->
+          <h1 class="end-note">THANK YOU <br/> VERY MUCH</h1>
+          
+        </section>
+        <section>
+          <h2>There is More</h2>
+          <ul class="more-features">
+            <li>Scroll Drive Animations</li>
+            <li>Container Queries</li>
+            <li>Popover</li>
+            <li>Subgrid</li>
+          </ul>
+          
         </section>
         <!-- SLIDES ENDS HERE-->
 
@@ -1244,6 +1278,7 @@
 			// - https://revealjs.com/config/
 			Reveal.initialize({
 				hash: true,
+        // slideNumber: true, //'c/t' 
 
 				// Learn about plugins: https://revealjs.com/plugins/
 				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
