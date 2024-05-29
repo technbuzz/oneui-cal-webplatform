@@ -1033,8 +1033,133 @@
           <iframe class="code-preview rounded" data-src="partials/preview-8/index.html"></iframe>
 
           <aside class="notes">
-            This is the default cross fade we get. but if you pay attention in the video here/next, we have this subtle design hueristic. 
-            that tells about user journey where he is now and where he was after closing the dialog
+            Now we have to reverse the process on closing the dialog.
+          </aside>
+        </section>
+
+        <section data-auto-animate>
+          <pre data-id="js5"><code data-trim data-line-numbers class="language-js">
+            const closeEl = document.querySelector(".close");
+
+          </code></pre>
+        </section>
+
+        <section data-auto-animate>
+          <pre data-id="js5"><code data-trim data-line-numbers class="language-js">
+            const closeEl = document.querySelector(".close");
+
+            closeEl.addEventListener("click", () => {
+
+            });
+          </code></pre>
+        </section>
+
+        <section data-auto-animate>
+          <pre data-id="js5"><code data-trim data-line-numbers class="language-js">
+            const closeEl = document.querySelector(".close");
+
+            closeEl.addEventListener("click", () => {
+
+              document.startViewTransition(() => {
+
+              });
+
+            });
+          </code></pre>
+        </section>
+        <section data-auto-animate>
+          <pre data-id="js5"><code data-trim data-line-numbers class="language-js">
+            const closeEl = document.querySelector(".close");
+
+            closeEl.addEventListener("click", () => {
+
+              document.startViewTransition(() => {
+
+                eventEl.style.viewTransitionName = 'Event'
+
+              });
+
+            });
+          </code></pre>
+        </section>
+
+        <section data-auto-animate>
+          <pre data-id="js5"><code data-trim data-line-numbers class="language-js">
+            const closeEl = document.querySelector(".close");
+
+            closeEl.addEventListener("click", () => {
+
+              document.startViewTransition(() => {
+
+                eventEl.style.viewTransitionName = 'Event'
+
+                dialog.close()
+
+              });
+
+            });
+          </code></pre>
+        </section>
+        
+        <section data-auto-animate>
+          <pre data-id="js5"><code data-trim data-line-numbers class="language-js">
+            const closeEl = document.querySelector(".close");
+
+            closeEl.addEventListener("click", () => {
+
+              const transition = document.startViewTransition(() => {
+
+                eventEl.style.viewTransitionName = 'Event'
+
+                dialog.close()
+
+              });
+
+            });
+          </code></pre>
+        </section>
+        <section data-auto-animate>
+          <pre data-id="js5"><code data-trim data-line-numbers class="language-js">
+            closeEl.addEventListener("click", async () => {
+
+              const transition = document.startViewTransition(() => {
+
+                eventEl.style.viewTransitionName = 'Event'
+
+                dialog.close()
+
+              });
+
+              await transition.finished;
+
+            });
+          </code></pre>
+        </section>
+        <section data-auto-animate>
+          <pre data-id="js5"><code data-trim data-line-numbers class="language-js">
+            closeEl.addEventListener("click", () => {
+
+              const transition = document.startViewTransition(() => {
+
+                eventEl.style.viewTransitionName = 'Event'
+
+                dialog.close()
+
+              });
+
+              await transition.finished;
+
+              dialog.style.viewTransitionName = "";
+
+            });
+          </code></pre>
+        </section>
+
+        <section>
+          <iframe class="code-preview rounded" data-src="partials/preview-9/index.html"></iframe>
+
+          <aside class="notes">
+            Now we have to reverse the process on closing the dialog.
           </aside>
         </section>
         <!-- SLIDES ENDS HERE-->

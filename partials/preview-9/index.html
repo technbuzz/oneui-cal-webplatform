@@ -68,9 +68,7 @@
         <div>
           🗓️ Random Event All day
 
-          <form method="dialog">
-            <button>Close</button>
-          </form>
+            <button id="dialogClose" >Close</button>
         </div>
 
         <footer></footer>
@@ -184,9 +182,11 @@
 </style>
 <script>
   const eventEls = document.querySelectorAll(".event");
+  let eventEl = null;
 
   eventEls.forEach((event) => {
     event.addEventListener("click", (e) => {
+      eventEl = e.target
       const eventStyle = e.target.style
       eventStyle.viewTransitionName = 'Event'
   
@@ -213,5 +213,23 @@
     e.snapTargetInline.classList.add('active')
 
   }) 
+
+
+  const closeEl = dialog.querySelector("#dialogClose")
+  closeEl.addEventListener("click", async() => {
+
+    const transition = document.startViewTransition(() => {
+
+      eventEl.style.viewTransitionName = 'Event'
+
+      dialog.close()
+
+    });
+
+    await transition.finished;
+
+    dialog.style.viewTransitionName = "";
+
+  });
 
 </script>
