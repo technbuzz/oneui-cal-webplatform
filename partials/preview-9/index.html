@@ -214,21 +214,28 @@
 
   }) 
 
+  dialog.addEventListener("click",  ({ target: dialog }) => {
+    if (dialog.nodeName === "DIALOG") {
+      dialogCloseWithTransition()
+    }
+  });
+
+  async function dialogCloseWithTransition() {
+		const transition = document.startViewTransition(() => {
+			dialog.style.viewTransitionName = "Event";
+			eventEl.style.viewTransitionName = "Event";
+			footerMain.appendChild(actionFooter);
+			dialog.close();
+		});
+
+		await transition.finished;
+		eventEl.style.viewTransitionName = "";
+  }
 
   const closeEl = dialog.querySelector("#dialogClose")
   closeEl.addEventListener("click", async() => {
+    dialogCloseWithTransition()
 
-    const transition = document.startViewTransition(() => {
-
-      eventEl.style.viewTransitionName = 'Event'
-
-      dialog.close()
-
-    });
-
-    await transition.finished;
-
-    dialog.style.viewTransitionName = "";
 
   });
 

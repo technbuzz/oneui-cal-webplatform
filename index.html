@@ -1153,14 +1153,77 @@
 
             });
           </code></pre>
+          <aside class="notes">
+            I've added code to close when we click on the backdrop as well and output becomes
+          </aside>
         </section>
 
         <section>
           <iframe class="code-preview rounded" data-src="partials/preview-9/index.html"></iframe>
-
           <aside class="notes">
-            Now we have to reverse the process on closing the dialog.
+            Now there is one missing element. The footer actions actions 
           </aside>
+
+        </section>
+
+        <section>
+          <img data-src="assets/action-footer.png" class="rounded r-stretch" alt="Action Footer Explaination" />
+          <aside class="notes">
+            All we have to move footer actions where it needed, when we open/close the dialog or when we scroll through the events
+          </aside>
+        </section>
+
+        <section data-auto-animate>
+          <pre data-id="css6"><code data-trim data-line-numbers >
+            .action-footer {
+              /* .... */
+
+            }
+          </code>
+          </pre>
+        </section>
+
+
+        <section data-auto-animate>
+          <pre data-id="css6"><code data-trim data-line-numbers >
+            .action-footer {
+              /* .... */
+
+              view-transition-name: actions;
+            }
+          </code>
+          </pre>
+        </section>
+
+        <section data-auto-animate>
+          <pre data-id="js5"><code data-trim data-line-numbers class="language-js">
+            closeEl.addEventListener("click", () => {
+
+              const transition = document.startViewTransition(() => {
+
+                eventEl.style.viewTransitionName = 'Event'
+
+                dialog.close()
+
+              });
+
+              await transition.finished;
+
+              dialog.style.viewTransitionName = "";
+
+            });
+          </code></pre>
+          <aside class="notes">
+            I've added code to close when we click on the backdrop as well and output becomes
+          </aside>
+        </section>
+
+        <section>
+          <iframe class="code-preview rounded" data-src="partials/preview-10/index.html"></iframe>
+          <aside class="notes">
+            Now there is one missing element. The footer actions actions 
+          </aside>
+
         </section>
         <!-- SLIDES ENDS HERE-->
 
