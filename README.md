@@ -4,7 +4,7 @@ A high-performance, zero-dependency recreation of the Samsung OneUI Calendar int
 
 This project demonstrates how complex, fluid mobile UI patterns—including modal backdrops, snap-scrolling, and view-state morphing—can be achieved using standard browser APIs without importing heavy JavaScript animation frameworks or third-party libraries.
 
-Live Demo: [Link to your GitHub Pages URL]
+Live Demo: [https://technbuzz.github.io/oneui-cal-webplatform]
 
 ---
 
@@ -22,11 +22,3 @@ Live Demo: [Link to your GitHub Pages URL]
 * **Zero External Dependencies:** Built entirely on native browser standards—no Framer Motion, GSAP, or heavy UI frameworks.
 * **Minimal Bundle Size:** Fast initial load time with clean CSS architecture and minimal runtime memory footprint.
 * **Hardware-Accelerated Animations:** Smooth 60 FPS transitions powered by CSS animation pseudo-elements and browser-native rendering.
-
----
-
-## Local Setup
-
-1. Clone the repository:
-   ```bash
-   git clone [https://github.com/your-username/oneui-calendar-demo.git](https://github.com/your-username/oneui-calendar-demo.git)
