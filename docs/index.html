@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
 	<head>
@@ -6,30 +7,1259 @@
 
 		<title>reveal.js</title>
 
-		<link rel="stylesheet" href="../dist/reset.css">
-		<link rel="stylesheet" href="../dist/reveal.css">
-		<link rel="stylesheet" href="../dist/theme/moon.css">
-		<link rel="stylesheet" href="../dist/theme/custom.css">
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/moon.css">
+		<link rel="stylesheet" href="dist/theme/custom.css">
 
 		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
 	</head>
 	<body>
 		<div class="reveal">
 			<div class="slides">
 				<section>
-          <h2>UI Challenge with Web Platform</h2>
-          <a href="../index.html" target="_blank">Link to the Slides</a>
-          <p>Continue for demo</p>
+          <h1>UI Challenge with Web Platform</h1>
+          <aside class="notes">Purpose of this session is to know how capable a web platform is.</aside>
         </section>
 				<section>
-          <h2>Reference Design</h2>
-          <video class="r-stretch" poster="../assets/frame.png" data-src="../assets/oneui_cal.mp4" controls> </video>
+          <h2>Web Experience</h2>
+          <ul>
+            <li class="fragment" style="text-wrap:pretty">Fundamentally a call & response between you & your users</li>
+            <li class="fragment" style="text-wrap:pretty">Invest in Quality Web Experiences & Interactions</li>
+            <li class="fragment" style="text-wrap:pretty">Easy to built with Native Web Platform</li>
+            <li class="fragment" style="text-wrap:pretty">No Third Party Scripting for Optimal Performance</li>
+          </ul>
+          <aside class="notes">A web experince is fundamentally a call and response between you and your users. And 
+            that's why it's so imortant to invest in quality web experiences and user interactions. 
+            It shouldn't be so hard to build these, robust engaging interactions with the native web platform.
+            no added third party scripting to manage or to slow down optimal performance.
+          </aside>
         </section>
-				<section>
-          <h2>Web Re-creation</h2>
-          <iframe class="code-preview rounded" data-src="../partials/preview-10/index.html"></iframe>
+				<!-- <section> -->
+    <!--       <h2>Novel interactive experiences</h2> -->
+    <!--        -->
+    <!--       <p>Capabilities that we never had before</p> -->
+    <!--       <aside class="notes">Next a video about challenge we will create</aside> -->
+    <!--     </section> -->
+        <section>
+          <video class="r-stretch" data-src="assets/oneui_cal.mp4" controls> </video>
+          <aside class="notes">We will take an example from another platform and replicate it via The Web. I have screen recorded how interacting with calendar looks on Samsung.</aside>
+        </section>
+        <section>
+          <h2>Setting up the Stage</h2>
+        </section>
+        <section data-auto-animate>
+          <pre data-id="html"><code data-trim data-line-numbers>
+            <main>
+            </main>
+          </code></pre>
+        </section>
+        <section data-auto-animate>
+          <pre data-id="html"><code data-trim data-line-numbers>
+            <main>
+              <div class="calendar"></div>
+            </main>
+          </code></pre>
+        </section>
+        <section data-auto-animate>
+          <pre data-id="html"><code data-trim data-line-numbers>
+            <main>
+              <div class="calendar">
+                <div>1</div>
+                <div>2</div>
+                <div>.</div>
+                <div>.</div>
+                <div>.</div>
+                <div>.</div>
+              </div>
+            </main>
+          </code></pre>
+        </section>
+        <section data-auto-animate>
+          <pre data-id="html"><code data-trim data-line-numbers>
+            <main>
+              <div class="calendar">
+                <div>1</div>
+                <div>2</div>
+                <div>.</div>
+                <div>.</div>
+                <div>5 <button class="event">Random Event</button> </div>
+                <div>.</div>
+                <div>.</div>
+              </div>
+            </main>
+          </code></pre>
+        </section>
+        <section data-auto-animate>
+          <pre data-id="css"><code data-trim data-line-numbers>
+            body {
+              background: white;
+              padding: 2rem;
+            }
+          </code></pre>
         </section>
 
+        <section data-auto-animate>
+          <pre data-id="css"><code data-trim data-line-numbers>
+            body {
+              background: white;
+              padding: 2rem;
+            }
+            main {
+              display: flex;
+              flex-direction: column;
+              justify-content: space-between;
+            }
+
+          </code></pre>
+        </section>
+        <section data-auto-animate>
+          <pre data-id="css"><code data-trim data-line-numbers>
+            body { }
+            main { }
+
+            .calendar {
+              display: grid;
+              width: 400px;
+              height: 500px;
+
+            }
+          </code></pre>
+        </section>
+        <section data-auto-animate>
+          <pre data-id="css"><code data-trim data-line-numbers>
+            body { }
+            main { }
+
+            .calendar {
+              display: grid;
+              width: 400px;
+              height: 500px;
+
+              grid-template-columns: repeat(7, 1fr);
+              grid-template-rows: repeat(6, 1fr);
+              gap: 0.25rem;
+            }
+          </code></pre>
+        </section>
+        <section>
+          <iframe class="code-preview rounded" data-src="partials/preview-1/index.html"></iframe>
+          <aside class="notes">Next we will add action items in the footer</aside>
+        </section>
+        <section data-auto-animate>
+          <pre data-id="html2"><code data-trim data-line-numbers>
+            <main>
+              <div class="calendar"> </div>
+              <footer id="footerMain">
+                <div id="actionFooter" class="action-footer">
+                </div>
+              </footer>
+            </main>
+          </code></pre>
+          <aside class="notes"> The nested div is to group the footer elements, to layout them. The ids will be used in JavaScript </aside>
+        </section>
+        <section data-auto-animate>
+          <pre data-id="html2"><code data-trim data-line-numbers>
+            <main>
+              <div class="calendar"> </div>
+              <footer id="footerMain">
+                <div id="actionFooter" class="action-footer">
+                  <input type="text" />
+                  <svg xmlns="http://www.w3.org/2000/svg">
+                    Add Icon
+                  </svg>
+                </div>
+              </footer>
+            </main>
+          </code></pre>
+        </section>
+
+        <section data-auto-animate>
+          <pre data-id="css2"><code data-trim data-line-numbers>
+            .calendar { }
+            .action-footer {
+              display: flex;
+              justify-content: space-between;
+            }
+          </code></pre>
+        </section>
+        <section data-auto-animate>
+          <pre data-id="css2"><code data-trim data-line-numbers>
+            .action-footer {
+              display: flex;
+              justify-content: space-between;
+
+              input[type="text"] {
+                border-radius: 2rem;
+                padding: 0.75rem;
+                border: 1px solid #ccc;
+              }
+            }
+          </code></pre>
+        </section>
+        <section data-auto-animate>
+          <pre data-id="css2"><code data-trim data-line-numbers>
+            .action-footer {
+              display: flex;
+              justify-content: space-between;
+
+              input[type="text"] {
+                /* .... */
+              }
+
+              svg {
+                border: 1px solid #ccc;
+                border-radius: 50%;
+                /* .... */
+              }
+            }
+          </code></pre>
+        </section>
+        <section>
+          <iframe class="code-preview rounded" data-src="partials/preview-2/index.html"></iframe>
+          <aside class="notes">Now in the video, there are three significant interactions. First of them is dialog</aside>
+        </section>
+        <section>
+          <h2>Three Distinct Features</h2>
+          <ul>
+            <li class="fragment">Event Details</li>
+            <li class="fragment">Slide throught Events </li>
+            <li class="fragment">Smooth Transition between different State</li>
+          </ul>
+        </section>
+        <section>
+          <h4> Dialog for Event Details </h4>
+          <video class="r-stretch" data-autoplay data-src="assets/dialog.mp4" controls> </video>
+          <aside class="notes">Which has the event details, so let's implement it.</aside>
+        </section>
+
+        <!-- HTML DIALOG  EXPLAIN -->
+
+        <section>
+          <h3>&lt;dialog&gt;</h3>
+        </section>
+
+        <section>
+          <h4>Dialog let us create modal dialogs with inert background</h4>
+          <h4>and a :backdrop</h4>
+        </section>
+        <section>
+
+          <h2>#top-layer</h3>
+          <img src="assets/top-layer.png" />
+          <p>No more fighting with z-index to ensure they go on top of everything else</p>
+        </section>
+        
+        <section>
+            <h2>Inert</h2>
+        </section>
+          <section>
+            <p>With the inert attribute applied, click events are not fired, the element can't gain focus, the element and content is hidden from the accessibility tree. </p>
+          </section>
+        <!-- EOF HTML DIALOG  EXPLAIN -->
+
+        <section data-auto-animate>
+          <pre data-id="html3"><code data-trim data-line-numbers>
+            <main> </main>
+
+            <dialog id="dialog">
+            </dialog>
+
+          </code></pre>
+        </section>
+        <section data-auto-animate>
+          <pre data-id="html3"><code data-trim data-line-numbers>
+            <main> </main>
+
+            <dialog id="dialog">
+              <p> I'm a modal dialog.</p>
+            </dialog>
+
+          </code></pre>
+        </section>
+        <section data-auto-animate>
+          <pre data-id="html3"><code data-trim data-line-numbers>
+            <main> </main>
+
+            <dialog id="dialog">
+              <p> I'm a modal dialog.</p>
+
+              <form method="dialog">
+                <button class="close">Ok</button>
+              </form>
+
+            </dialog>
+          </code></pre>
+        </section>
+
+        <section data-auto-animate>
+          <pre data-id="html3"><code data-trim data-line-numbers="6-8" >
+            <main> </main>
+
+            <dialog id="dialog">
+              <p> I'm a modal dialog.</p>
+
+              <form method="dialog">
+                <button class="close">Ok</button>
+              </form>
+
+            </dialog>
+          </code></pre>
+          <aside class="notes"> The highlighted code is implicit way to close the dialog, without
+            JavaScript intervention
+          </aside>
+        </section>
+        <section data-auto-animate>
+          <pre data-id="js"><code data-trim data-line-numbers>
+            const eventEls = document.querySelectorAll(".event");
+          </code></pre>
+          <aside class="notes">We still need JavaScript to explicitly open the dialog</aside>
+        </section>
+        <section data-auto-animate>
+          <pre data-id="js"><code data-trim data-line-numbers class="language-js">
+            const eventEls = document.querySelectorAll(".event");
+
+            eventEls.forEach((event) => {
+            });
+          </code></pre>
+        </section>
+        
+        <section data-auto-animate>
+          <pre data-id="js"><code data-trim data-line-numbers class="language-js">
+            const eventEls = document.querySelectorAll(".event");
+
+            eventEls.forEach((event) => {
+
+              event.addEventListener("click", (e) => {
+                dialog.showModal();
+              });
+
+            });
+          </code></pre>
+        </section>
+
+        <section>
+          <iframe class="code-preview rounded" data-src="partials/preview-3/index.html"></iframe>
+          <aside class="notes">Let's improve the dialog. It's boring. Lets add a bit by adding & styling event details</aside>
+        </section>
+
+        <section data-auto-animate>
+          <pre data-id="html4"><code data-trim data-line-numbers>
+            <main> </main>
+
+            <dialog id="dialog">
+              <p> I'm a modal dialog.</p>
+
+              <form method="dialog">
+                <button class="close">Ok</button>
+              </form>
+
+            </dialog>
+          </code></pre>
+        </section>
+
+        <section data-auto-animate>
+          <pre data-id="html4"><code data-trim data-line-numbers>
+            <main> </main>
+
+            <dialog id="dialog">
+              <p> I'm a modal dialog.</p>
+
+              <form method="dialog">
+                <button class="close">Ok</button>
+              </form>
+
+              <section> </section>
+
+            </dialog>
+          </code></pre>
+        </section>
+
+        <section data-auto-animate>
+          <pre data-id="html4"><code data-trim data-line-numbers>
+            <main> </main>
+
+            <dialog id="dialog">
+              <! -- -->
+
+              <section>
+                <article></article>
+                <article></article>
+                <article></article>
+              </section>
+
+            </dialog>
+          </code></pre>
+        </section>
+
+        <section data-auto-animate>
+          <pre data-id="html4"><code data-trim data-line-numbers>
+            <dialog id="dialog">
+
+              <section>
+                <article></article>
+                <article></article>
+                <article></article>
+              </section>
+
+            </dialog>
+          </code></pre>
+        </section>
+
+        <section data-auto-animate>
+          <pre data-id="html4"><code data-trim data-line-numbers>
+              <section>
+                <article></article>
+                <article></article>
+                <article></article>
+              </section>
+          </code></pre>
+        </section>
+
+        <section data-auto-animate>
+          <pre data-id="html4"><code data-trim data-line-numbers>
+              <section>
+                <article>
+                
+                  <div class="event-wrapper"> </div>
+
+                </article>
+              </section>
+          </code></pre>
+        </section>
+
+        <section data-auto-animate>
+          <pre data-id="html4"><code data-trim data-line-numbers>
+              <section>
+                <article>
+                
+                  <div class="event-wrapper">
+                    <header>5 Sunday</header>
+                    🗓️ Random Event All day
+                    <footer></footer>
+                  </div>
+
+                </article>
+              </section>
+          </code></pre>
+        </section>
+
+        <section data-auto-animate>
+          <pre data-id="css3"><code data-trim data-line-numbers>
+            .calendar { }
+            .action-footer { }
+
+            dialog {
+
+            }
+          </code></pre>
+        </section>       
+        <section data-auto-animate>
+          <pre data-id="css3"><code data-trim data-line-numbers>
+            .calendar { }
+            .action-footer { }
+
+            dialog {
+              width: 100%;
+              border: none;
+              background-color: transparent;
+              padding: 0;
+            }
+          </code></pre>
+        </section>
+        <section data-auto-animate>
+          <pre data-id="css3"><code data-trim data-line-numbers>
+            dialog {
+              width: 100%;
+              border: none;
+              background-color: transparent;
+              padding: 0;
+
+              section {
+                width: 100%;
+                display: flex;
+                flex-wrap: nowrap;
+                align-items: center;
+                overflow-y: hidden;
+              }
+            }
+          </code></pre>
+        </section>
+
+        <section data-auto-animate>
+          <pre data-id="css3"><code data-trim data-line-numbers>
+            dialog {
+              /* .... */
+
+              section {
+                width: 100%;
+                display: flex;
+                flex-wrap: nowrap;
+                align-items: center;
+                overflow-y: hidden;
+              }
+              
+              article {
+              }
+            }
+          </code></pre>
+        </section>
+        <section data-auto-animate>
+          <pre data-id="css3"><code data-trim data-line-numbers>
+            dialog {
+              /* .... */
+
+              section { }
+              
+              article {
+                flex: none;
+                height: 80vh;
+                width: 80%;
+                padding: 1rem;
+              }
+
+            }
+          </code></pre>
+        </section>
+        <section>
+          <iframe class="code-preview rounded" data-src="partials/preview-4/index.html"></iframe>
+          <aside class="notes"> Now we have overflowed content hence it scrolled. But we have all seen this kind of scrolling. 
+          Let's make it interesting with few css properties</aside>
+        </section>
+
+        <section data-auto-animate>
+          <h2>Three Distinct Features</h2>
+          <ul>
+            <li>Event Details</li>
+            <li>Slide throught Events </li>
+            <li>Smooth Transition between different State</li>
+          </ul>
+        </section>
+
+        <section data-auto-animate>
+          <h2>Three Distinct Features</h2>
+          <ul>
+            <li style="text-decoration: line-through">Event Details</li>
+            <li>Slide throught Events </li>
+            <li>Smooth Transition between different State</li>
+          </ul>
+        </section>
+
+        <section>
+          <video class="r-stretch" data-src="assets/snap.mp4" controls> </video>
+        </section>
+          
+        <section>
+          <h3>SCROLL SNAP</h3>
+        </section>
+
+        <section  data-auto-animate>
+          <h3>Syntax</h3>
+          <pre data-id="syntax"> <code data-trim data-line-numbers>
+            /* for the scroll container */ 
+            scroll-snap-type: y proximity;
+            scroll-snap-type: x mandatory;
+          </code></pre>
+          <aside class="notes">
+            x which axis you want to scroll to snap along. proximity will snap to if it's near to snap point mentioned 
+            in the scroll-snap-align in scroll items
+            mandatory is always snap to the closest snap point. Mandatory will some time gets in the way
+          </aside>
+        </section>
+
+        <section data-id="syntax" data-auto-animate>
+          <h3>Syntax</h3>
+          <pre data-id="syntax"> <code data-trim data-line-numbers>
+            /* for the scroll container */ 
+            scroll-snap-type: y mandatory;
+            scroll-snap-type: x mandatory;
+
+            /* for the scroll items */ 
+            scroll-snap-align: start;
+            scroll-snap-align: center;
+            scroll-snap-align: end;
+          </code></pre>
+          <aside class="notes">
+            scroll-snap-align sets how the element should be snapped.
+            Will make sense, with the example. 
+          </aside>
+        </section>
+
+        <section data-auto-animate>
+          <pre data-id="css4"><code data-trim data-line-numbers="8">
+            dialog {
+              /* .... */
+
+              section {
+                /* .... */
+                overflow-y: hidden;
+
+                scroll-snap-type: x mandatory;
+              }
+              
+              article {
+              }
+            }
+          </code></pre>
+        </section>
+
+        <section data-auto-animate>
+          <pre data-id="css4"><code data-trim data-line-numbers="8,13">
+            dialog {
+              /* .... */
+
+              section {
+                /* .... */
+                overflow-y: hidden;
+
+                scroll-snap-type: x mandatory;
+              }
+              
+              article {
+                /* .... */
+                scroll-snap-align: center;
+              }
+            }
+          </code></pre>
+        </section>
+        <section>
+          <iframe class="code-preview rounded" data-src="partials/preview-5/index.html"></iframe>
+        </section>
+
+        <section>
+          <video class="r-stretch" data-src="assets/snap.mp4" controls> </video>
+          <aside class="notes">As we can see the element that is snapped, active element scales bigger than other, 
+          Luckily browser exposes this feature</aside>
+        </section>
+        
+        <section>
+          <h3><a href="https://drafts.csswg.org/css-scroll-snap-2/" target="_blank">CSS-SCROLL-SNAP-2</a></h3>
+          <h4>Working Draft</h4>
+
+          <p class="fragment"> snapChanging </p>
+          <p class="fragment"> snapChanged </p>
+          <p class="fragment"> :snapped </p>
+        </section>
+        
+        <section data-auto-animate>
+          <pre data-id="js2"><code data-trim data-line-numbers class="language-js">
+            const eventEls = document.querySelectorAll(".event");
+
+            eventEls.forEach((event) => {
+
+              event.addEventListener("click", (e) => {
+                dialog.showModal();
+              });
+
+            });
+          </code></pre>
+        </section>
+
+        <section data-auto-animate>
+          <pre data-id="js2"><code data-trim data-line-numbers class="language-js">
+            const eventEls = document.querySelectorAll(".event");
+
+            eventEls.forEach((event) => {
+
+            });
+          </code></pre>
+        </section>
+        <section data-auto-animate>
+
+          <pre data-id="js2"><code data-trim data-line-numbers class="language-js">
+            const eventEls = document.querySelectorAll(".event");
+
+            eventEls.forEach((event) => {
+
+            });
+
+            const sectionEl = document.querySelector("dialog section");
+
+          </code></pre>
+        </section>
+        <section data-auto-animate>
+          <pre data-id="js2"><code data-trim data-line-numbers class="language-js">
+            /* ... */
+            const sectionEl = dialog.querySelector("section");
+            const articlEls = section.querySelectorAll("article");
+
+          </code></pre>
+        </section>
+        <section data-auto-animate>
+          <pre data-id="js2"><code data-trim data-line-numbers class="language-js">
+            /* ... */
+            const sectionEl = dialog.querySelector("section");
+            const articlEls = section.querySelectorAll("article");
+
+            sectionEl.addEventListener('snapchanged', e => {
+            }) 
+
+          </code></pre>
+        </section>
+        <section data-auto-animate>
+          <pre data-id="js2"><code data-trim data-line-numbers="6" class="language-js">
+            const sectionEl = dialog.querySelector("section");
+            const articlEls = section.querySelectorAll("article");
+
+            sectionEl.addEventListener('snapchanged', e => {
+            
+              e.snapTargetInline.classList.add('active')
+
+            }) 
+
+          </code></pre>
+          <aside class="notes"> snapTargetInline, 
+            The element that the snap container is snapped to in the inline axis at the snap position for the associated snap event.
+          </aside>
+        </section>
+        <section data-auto-animate>
+          <pre data-id="js2"><code data-trim data-line-numbers class="language-js">
+            const sectionEl = dialog.querySelector("section");
+            const articlEls = section.querySelectorAll("article");
+
+            sectionEl.addEventListener('snapchanged', e => {
+
+              articlEls.forEach(a => a.classList.remove('active'))
+
+              e.snapTargetInline.classList.add('active')
+
+            }) 
+
+          </code></pre>
+        </section>
+        <section data-auto-animate>
+          <pre data-id="css5"><code data-trim data-line-numbers>
+            article {
+              flex: none;
+              height: 80vh;
+              width: 80%;
+              padding: 1rem;
+            }
+          </code></pre>
+        </section>
+        <section data-auto-animate>
+          <pre data-id="css5"><code data-trim data-line-numbers="7">
+            article {
+              flex: none;
+              height: 80vh;
+              width: 80%;
+              padding: 1rem;
+
+              opacity: 0.8;
+            }
+          </code></pre>
+        </section>
+        <section data-auto-animate>
+          <pre data-id="css5"><code data-trim data-line-numbers>
+            article {
+              /* ... */
+
+              opacity: 0.8;
+
+            }
+          </code></pre>
+        </section>
+        <section data-auto-animate>
+          <pre data-id="css5"><code data-trim data-line-numbers>
+            article {
+              /* ... */
+
+              opacity: 0.8;
+              transition: all 0.5s ease-in-out;
+
+            }
+          </code></pre>
+        </section>
+        <section data-auto-animate>
+          <pre data-id="css5"><code data-trim data-line-numbers>
+            article {
+              /* ... */
+
+              opacity: 0.8;
+              transition: all 0.5s ease-in-out;
+
+              &.active {
+                opacity: 1;
+              }
+            }
+          </code></pre>
+        </section>
+        <section>
+          <iframe class="code-preview rounded" data-src="partials/preview-6/index.html"></iframe>
+        </section>
+        <section data-auto-animate>
+          <h2>Three Distinct Features</h2>
+          <ul>
+            <li style="text-decoration: line-through">Event Details</li>
+            <li>Slide throught Events </li>
+            <li>Smooth Transition between different State</li>
+          </ul>
+        </section>
+        <section data-auto-animate>
+          <h2>Three Distinct Features</h2>
+          <ul>
+            <li style="text-decoration: line-through">Event Details</li>
+            <li style="text-decoration: line-through">Slide throught Events </li>
+            <li>Smooth Transition between different State</li>
+          </ul>
+        </section>
+        
+        <section>
+          <video class="r-stretch" data-src="assets/vt.mp4" controls> </video>
+          <aside class="notes">Last one, This is the cool one. 😎, there is some explaination but bear with me it's worth it.   </aside>
+        </section>
+
+        <section data-auto-animate> 
+          <h2>View Transition API</h2>
+        </section>
+        <section data-auto-animate> 
+          <h2>View Transition API</h2>
+          <p>
+            With View Transitions you can create powerful, immersive native like experiences, that have seamless transition between view of the web app.
+          </p>
+          
+        </section>
+        <section>
+          <h2>Single Page VT</h2>
+          <video class="r-stretch" data-src="assets/single-vt.mp4" controls> </video>
+          <p><a href="https://http203-playlist.netlify.app/">Link to the demo </a></href>
+        </section>
+        <section data-auto-animate> 
+          <h2>More Examples</h2>
+          
+          <p><a href="https://live-transitions.pages.dev/" target="_blank">Link to Multi Page VT</a></href>
+
+        </section>
+        <section>
+
+          <img data-src="assets/vt-support.png" class="r-stretch rounded" alt="View Transition Support" />
+            
+          <aside class="notes"> It is delightfull to see that many framework have adopted it as first class feature. 
+          it's never been easy to add transition to SPA</aside>
+
+        </section>
+        <section data-auto-animate>
+          <h3>One line to trigger View Transition</h3>
+        </section>
+
+        <section data-auto-animate>
+          <h3>One line to trigger View Transition</h3>
+          <pre>
+            <code>
+              document.startViewTransition(...)
+            </code>
+          </pre>
+          <aside class="notes">At it's core regardless of which framework you use, same document view transition revolves around single line of code</aside>
+        </section>
+
+        <section data-auto-animate>
+
+          <pre data-id="css6"><code data-trim data-line-numbers>
+            :root {
+              view-transition-name: root;
+            }
+
+            .root {
+              view-transition-name: root;
+            }
+
+          </code></pre>
+          <aside class="notes">
+            When invoked, browsers automatically captures snapshot of all element that have view transition name property declared on them.
+          </aside>
+        </section>
+        <section> 
+          <img data-src="assets/old-newstate.png" class="r-stretch rounded" alt="Old and new state" />
+
+          <aside class="notes">
+            Then the provided callback is executed, that updated the DOM, browser takes snapshot of new state
+          </aside>
+        </section>
+
+
+        <section> 
+          <video class="r-stretch" data-src="assets/snapshot-anim.mp4" controls> </video>
+
+          <aside class="notes">
+            These snapshop are arranged in tree of pseudo elements. Which are animated using power of CSS Animations.
+            Snapshop pair of old and new state smoothly transitioned from their old size and position to new location while their
+            content cross fades
+          </aside>
+        </section>
+
+        <section data-auto-animate>
+          <pre data-id="js3"><code data-trim data-line-numbers class="language-js">
+            eventEls.forEach((event) => {
+
+              event.addEventListener("click", (e) => {
+                dialog.showModal();
+              });
+
+            });
+          </code></pre>
+        </section>
+
+        <section data-auto-animate>
+          <pre data-id="js3"><code data-trim data-line-numbers class="language-js">
+            eventEls.forEach((event) => {
+
+              event.addEventListener("click", (e) => {
+
+                  dialog.showModal();
+
+              });
+
+            });
+          </code></pre>
+        </section>
+        <section data-auto-animate>
+          <pre data-id="js3"><code data-trim data-line-numbers class="language-js">
+            eventEls.forEach((event) => {
+
+              event.addEventListener("click", (e) => {
+                document.startViewTransition(() => {
+
+                  dialog.showModal();
+                  
+                })
+              });
+
+            });
+          </code></pre>
+        </section>
+
+
+        <section>
+          <iframe class="code-preview rounded" data-src="partials/preview-7/index.html"></iframe>
+
+          <aside class="notes">
+            This is the default cross fade we get. but if you pay attention in the video here/next, we have this subtle design hueristic. 
+            that tells about user journey where he is now and where he was after closing the dialog
+          </aside>
+        </section>
+
+        <section>
+          <video class="r-stretch" data-src="assets/vt.mp4" controls> </video>
+          <aside class="notes"></aside>
+        </section>
+
+        <section>
+          <img src="assets/link-event.png" class="r-stretch rounded" alt="Link Events" />
+          <aside class="notes">We have to link the event trigger from old snapshot to it's details in new snapshot</aside>
+        </section>
+
+        <section data-auto-animate>
+          <pre data-id="js4"><code data-trim data-line-numbers class="language-js">
+              event.addEventListener("click", (e) => {
+                document.startViewTransition(() => {
+
+                  dialog.showModal();
+                  
+                })
+              });
+          </code></pre>
+        </section>
+
+        <section data-auto-animate>
+          <pre data-id="js4"><code data-trim data-line-numbers class="language-js">
+              event.addEventListener("click", (e) => {
+                const eventStyle = e.target.style
+
+                document.startViewTransition(() => {
+
+                  dialog.showModal();
+                  
+                })
+              });
+          </code></pre>
+        </section>
+
+        <section data-auto-animate>
+          <pre data-id="js4"><code data-trim data-line-numbers class="language-js">
+              event.addEventListener("click", (e) => {
+                const eventStyle = e.target.style
+                eventStyle.viewTransitionName = 'Event'
+            
+
+                document.startViewTransition(() => {
+
+                  dialog.showModal();
+                  
+                })
+              });
+          </code></pre>
+        </section>
+
+        <section data-auto-animate>
+          <pre data-id="js4"><code data-trim data-line-numbers class="language-js">
+              event.addEventListener("click", (e) => {
+                const eventStyle = e.target.style
+                eventStyle.viewTransitionName = 'Event'
+            
+
+                document.startViewTransition(() => {
+                  eventStyle.viewTransitionName = null
+
+                  dialog.showModal();
+                  
+                })
+              });
+          </code></pre>
+          <aside class="notes">We have to remove 'Event' transition name from this particular target b/c 
+          not two element can have same transition name</aside>
+        </section>
+
+        <section data-auto-animate>
+          <pre data-id="js4"><code data-trim data-line-numbers class="language-js">
+              event.addEventListener("click", (e) => {
+                const eventStyle = e.target.style
+                eventStyle.viewTransitionName = 'Event'
+            
+
+                document.startViewTransition(() => {
+                  eventStyle.viewTransitionName = null
+                  
+                  dialog.style.viewTransitionName = 'Event'
+
+                  dialog.showModal();
+                  
+                })
+              });
+          </code></pre>
+        </section>
+
+
+        <section>
+          <iframe class="code-preview rounded" data-src="partials/preview-8/index.html"></iframe>
+
+          <aside class="notes">
+            Now we have to reverse the process on closing the dialog.
+          </aside>
+        </section>
+
+        <section data-auto-animate>
+          <pre data-id="js5"><code data-trim data-line-numbers class="language-js">
+            const closeEl = document.querySelector(".close");
+
+          </code></pre>
+        </section>
+
+        <section data-auto-animate>
+          <pre data-id="js5"><code data-trim data-line-numbers class="language-js">
+            const closeEl = document.querySelector(".close");
+
+            closeEl.addEventListener("click", () => {
+
+            });
+          </code></pre>
+        </section>
+
+        <section data-auto-animate>
+          <pre data-id="js5"><code data-trim data-line-numbers class="language-js">
+            const closeEl = document.querySelector(".close");
+
+            closeEl.addEventListener("click", () => {
+
+              document.startViewTransition(() => {
+
+              });
+
+            });
+          </code></pre>
+        </section>
+        <section data-auto-animate>
+          <pre data-id="js5"><code data-trim data-line-numbers class="language-js">
+            const closeEl = document.querySelector(".close");
+
+            closeEl.addEventListener("click", () => {
+
+              document.startViewTransition(() => {
+
+                eventEl.style.viewTransitionName = 'Event'
+
+              });
+
+            });
+          </code></pre>
+        </section>
+
+        <section data-auto-animate>
+          <pre data-id="js5"><code data-trim data-line-numbers class="language-js">
+            const closeEl = document.querySelector(".close");
+
+            closeEl.addEventListener("click", () => {
+
+              document.startViewTransition(() => {
+
+                eventEl.style.viewTransitionName = 'Event'
+
+                dialog.close()
+
+              });
+
+            });
+          </code></pre>
+        </section>
+        
+        <section data-auto-animate>
+          <pre data-id="js5"><code data-trim data-line-numbers class="language-js">
+            const closeEl = document.querySelector(".close");
+
+            closeEl.addEventListener("click", () => {
+
+              const transition = document.startViewTransition(() => {
+
+                eventEl.style.viewTransitionName = 'Event'
+
+                dialog.close()
+
+              });
+
+            });
+          </code></pre>
+        </section>
+        <section data-auto-animate>
+          <pre data-id="js5"><code data-trim data-line-numbers class="language-js">
+            closeEl.addEventListener("click", async () => {
+
+              const transition = document.startViewTransition(() => {
+
+                eventEl.style.viewTransitionName = 'Event'
+
+                dialog.close()
+
+              });
+
+              await transition.finished;
+
+            });
+          </code></pre>
+        </section>
+        <section data-auto-animate>
+          <pre data-id="js5"><code data-trim data-line-numbers class="language-js">
+            closeEl.addEventListener("click", () => {
+
+              const transition = document.startViewTransition(() => {
+
+                eventEl.style.viewTransitionName = 'Event'
+
+                dialog.close()
+
+              });
+
+              await transition.finished;
+
+              dialog.style.viewTransitionName = "";
+
+            });
+          </code></pre>
+          <aside class="notes">
+            I've added code to close when we click on the backdrop as well and output becomes
+          </aside>
+        </section>
+
+        <section>
+          <iframe class="code-preview rounded" data-src="partials/preview-9/index.html"></iframe>
+          <aside class="notes">
+            Now there is one missing element. The footer actions actions 
+          </aside>
+
+        </section>
+
+        <section>
+          <img data-src="assets/action-footer.png" class="rounded r-stretch" alt="Action Footer Explaination" />
+          <aside class="notes">
+            All we have to move footer actions where it needed, when we open/close the dialog or when we scroll through the events
+          </aside>
+        </section>
+
+        <section data-auto-animate>
+          <pre data-id="css6"><code data-trim data-line-numbers >
+            .action-footer {
+              /* .... */
+
+            }
+          </code>
+          </pre>
+        </section>
+
+
+        <section data-auto-animate>
+          <pre data-id="css6"><code data-trim data-line-numbers class="language-css" >
+            .action-footer {
+              /* .... */
+
+              view-transition-name: actions;
+            }
+          </code>
+          </pre>
+        </section>
+
+        <section data-auto-animate>
+          <pre data-id="js6"><code data-trim data-line-numbers class="language-js">
+            sectionEl.addEventListener('snapchanged', e => {
+
+              articlEl.forEach(article => article.classList.remove('active'))
+              e.snapTargetInline.classList.add('active')
+
+
+            })
+          </code></pre>
+          <aside class="notes">
+            I've added code to close when we click on the backdrop as well and output becomes
+          </aside>
+        </section>
+        <section data-auto-animate>
+          <pre data-id="js6"><code data-trim data-line-numbers class="language-js">
+            sectionEl.addEventListener('snapchanged', e => {
+
+              articlEl.forEach(article => article.classList.remove('active'))
+              e.snapTargetInline.classList.add('active')
+
+              e.querySelector("footer").appendChild(actionFooter);              
+
+            })
+          </code></pre>
+        </section>
+        <section>
+          <iframe class="code-preview rounded" data-src="partials/preview-10/index.html"></iframe>
+          <aside class="notes"> </aside>
+
+        </section>
+
+        <section data-auto-animate>
+          <h2>Three Distinct Features</h2>
+          <ul>
+            <li style="text-decoration: line-through">Event Details</li>
+            <li style="text-decoration: line-through">Slide throught Events </li>
+            <li>Smooth Transition between different State</li>
+          </ul>
+        </section>
+
+        <section data-auto-animate>
+          <h2>Three Distinct Features</h2>
+          <ul>
+            <li style="text-decoration: line-through">Event Details</li>
+            <li style="text-decoration: line-through">Slide throught Events </li>
+            <li style="text-decoration: line-through">Smooth Transition between different State</li>
+          </ul>
+        </section>
+        <section>
+          <!-- <h1 class="end-note">THAT'S <br/> IT</h1> -->
+          <h1 class="end-note">THANK YOU <br/> VERY MUCH</h1>
+          
+        </section>
+        <section>
+          <h2>There is More</h2>
+          <ul class="more-features">
+            <li>Scroll Drive Animations</li>
+            <li>Container Queries</li>
+            <li>Popover</li>
+            <li>Subgrid</li>
+          </ul>
+          
+        </section>
         <!-- SLIDES ENDS HERE-->
 
 
@@ -38,7 +1268,10 @@
       
 		</div>
 
-		<script src="../dist/reveal.js"></script>
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
     
 		<script>
 			// More info about initialization & config:
@@ -49,8 +1282,10 @@
         // slideNumber: true, //'c/t' 
 
 				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
 			});
 		</script>
 	</body>
 </html>
+
 

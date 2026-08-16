@@ -20,7 +20,7 @@ const minify = require('gulp-clean-css')
 const connect = require('gulp-connect')
 const autoprefixer = require('gulp-autoprefixer')
 
-const root = yargs.argv.root || '.'
+const root = yargs.argv.root || 'docs'
 const port = yargs.argv.port || 8000
 const host = yargs.argv.host || 'localhost'
 
