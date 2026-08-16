@@ -54,6 +54,7 @@
   </footer>
 </main>
 <dialog id="dialog">
+  <div class="scroller">
   <section>
     <article>
       <div class="event-wrapper">
@@ -84,6 +85,7 @@
       </div>
     </article>
   </section>
+  </div>
 </dialog>
 
 <style>
@@ -135,52 +137,76 @@
   }
 
 
+
   dialog {
     width: 100%;
     border: none;
     background-color: transparent;
     padding: 0;
 
+    .scroller {
 
-    section {
-      width: 100%;
       display: flex;
-      flex-wrap: nowrap;
-      align-items: center;
-      overflow-y: hidden;
+      overflow: auto hidden;
+
       scroll-snap-type: x mandatory;
+      container-name: scroller;  
+      container-type: inline-size scroll-state;
 
-      article {
-        flex: none;
-        height: 80vh;
-        width: 80%;
-        padding: 2rem;
-        scroll-snap-align: center;
+      section {
+        width: 100%;
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
 
-        opacity: 0.8;
-        transition: all 0.5s ease-in-out;
 
-        &.active {
-          opacity: 1;
-          padding: 0;
+
+        article {
+          container-type: scroll-state;
+
+          flex: none;
+          height: 80vh;
+          width: 80%;
+          scroll-snap-align: center;
+
+          padding: 0.3rem;
+          transition: all 0.5s ease-in-out;
+
+
+          &.active {
+            opacity: 1;
+            padding: 0;
+          }
+
+
+          .event-wrapper {
+            display: grid;
+            grid-template-rows: auto 1fr auto;
+            opacity: 0.95;
+
+            padding: 2rem;
+            border-radius: 1rem;
+            background-color: white;
+            height: 100%;
+
+            transition-duration: 0.3s;
+            transition-timing-function: ease-in-out;
+            transition-property: transform, opacity;
+
+            @container not scroll-state(snapped: x) {
+              transform: scale(0.9);
+              opacity: 0.7;
+            }
+          }
         }
 
-
-        .event-wrapper {
-          display: grid;
-          grid-template-rows: auto 1fr auto;
-
-          padding: 2rem;
-          border-radius: 1rem;
-          background-color: white;
-          height: 100%;
-        }
       }
-
     }
 
 
   }
+
+  
 </style>
 <script>
   const eventEls = document.querySelectorAll(".event");
